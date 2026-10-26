@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff3ee">
+  <title>Название скоро появится — каталог авторских фото</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="На главную"><span class="brand-mark">✿</span><span id="brandName">ТВОЁ НАЗВАНИЕ</span></a>
+  <nav><a href="#catalog">Каталог</a><a href="#creators">Авторам</a><a href="#about">О проекте</a></nav>
+  <button class="btn btn-small" id="openAccount">Кабинет автора</button>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow">ПЛОЩАДКА АВТОРСКОГО КОНТЕНТА</span>
+      <h1>Твоя эстетика.<br><em>Твои коллекции.</em></h1>
+      <p>Открывай авторские фотоколлекции и знакомься с создателями. Сейчас мы собираем первых авторов и тестируем каталог.</p>
+      <div class="hero-actions"><a class="btn" href="#catalog">Смотреть каталог <span>↗</span></a><a class="text-link" href="#creators">Стать автором →</a></div>
+      <div class="proof"><span class="proof-dot"></span> Ранний запуск · публикации после модерации</div>
+    </div>
+    <div class="hero-art" aria-label="Декоративная композиция">
+      <div class="sun"></div><div class="arch arch-back"></div><div class="arch arch-front"></div>
+      <div class="flower flower-one">✿</div><div class="flower flower-two">✿</div>
+      <div class="art-label"><span>NEW</span><b>Коллекции<br>от авторов</b><small>Скоро здесь появятся первые работы</small></div>
+    </div>
+  </section>
+
+  <section class="section" id="catalog">
+    <div class="section-head"><div><span class="eyebrow">ОТКРЫВАЙ НОВОЕ</span><h2>Каталог коллекций</h2></div><span class="count" id="catalogCount">0 коллекций</span></div>
+    <div class="filters">
+      <button class="filter active" data-filter="all">Все работы</button>
+      <button class="filter" data-filter="art">Эстетика</button>
+      <button class="filter" data-filter="daily">Повседневное</button>
+      <button class="filter" data-filter="nature">Природа и детали</button>
+    </div>
+    <div class="gallery" id="gallery">
+      <div class="empty-state"><div class="empty-icon">✿</div><h3>Каталог готов к первым авторам</h3><p>Здесь появятся одобренные фотографии. Стань одним из первых участников проекта.</p><a class="btn btn-light" href="#creators">Подать заявку</a></div>
+    </div>
+  </section>
+
+  <section class="creator-band" id="creators">
+    <div class="creator-symbol">✳</div>
+    <div><span class="eyebrow">ДЛЯ СОЗДАТЕЛЕЙ</span><h2>Покажи свой взгляд</h2><p>Создай профиль и отправь фотографии на проверку. На этапе тестирования публикации бесплатны, продажи и выплаты пока не подключены.</p></div>
+    <button class="btn" id="joinCreator">Стать автором <span>↗</span></button>
+  </section>
+
+  <section class="section about" id="about">
+    <span class="eyebrow">НАЧИНАЕМ С ПРОСТОГО</span><h2>Тёплое пространство для авторов</h2>
+    <div class="features">
+      <article><span>01</span><h3>Создай профиль</h3><p>Расскажи о себе под псевдонимом и добавь аватар.</p></article>
+      <article><span>02</span><h3>Отправь фото</h3><p>Работы сначала попадают на модерацию и не видны в каталоге.</p></article>
+      <article><span>03</span><h3>Расти вместе с нами</h3><p>Помоги проверить спрос до запуска платных функций.</p></article>
+    </div>
+  </section>
+</main>
+
+<footer><a class="brand" href="#"><span class="brand-mark">✿</span><span id="footerBrand">ТВОЁ НАЗВАНИЕ</span></a><p>Демонстрационная версия. Продажи и платежи не подключены.</p><div><a href="#rules">Правила</a><a href="#privacy">Конфиденциальность</a></div></footer>
+
+<div class="modal-backdrop" id="accountModal" hidden>
+  <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="close" id="closeModal" aria-label="Закрыть">×</button>
+    <span class="eyebrow">ЛИЧНЫЙ КАБИНЕТ</span><h2 id="modalTitle">Войти или создать профиль</h2>
+    <p class="muted">Демо-режим: данные сохраняются только в этом браузере на этом устройстве. Это не настоящая защищённая регистрация.</p>
+    <form id="profileForm">
+      <label>Псевдоним<input name="nickname" required minlength="2" maxlength="30" placeholder="Например, PeachStudio"></label>
+      <label>Электронная почта<input name="email" type="email" required placeholder="you@example.com"></label>
+      <label>О себе<textarea name="bio" maxlength="240" rows="3" placeholder="Несколько слов о твоём стиле"></textarea></label>
+      <label class="check"><input type="checkbox" required> Мне исполнилось 18 лет, и я согласен(на) с правилами тестовой площадки.</label>
+      <button class="btn full" type="submit">Создать демо-профиль</button>
+    </form>
+    <div id="profileStatus" class="status" aria-live="polite"></div>
+    <div id="dashboard" hidden>
+      <hr><h3>Мой кабинет</h3><p id="welcomeText"></p>
+      <form id="uploadForm">
+        <label>Название фотоколлекции<input name="title" required maxlength="60" placeholder="Название работы"></label>
+        <label>Категория<select name="category"><option value="art">Эстетика</option><option value="daily">Повседневное</option><option value="nature">Природа и детали</option></select></label>
+        <label>Фотография (JPG, PNG, WebP; до 5 МБ)<input name="photo" type="file" accept="image/jpeg,image/png,image/webp" required></label>
+        <label>Описание<textarea name="description" rows="2" maxlength="240" placeholder="Описание коллекции"></textarea></label>
+        <label class="check"><input name="rights" type="checkbox" required> Я автор фотографии или имею разрешение на её публикацию; на снимке нет людей без их согласия.</label>
+        <button class="btn full" type="submit">Отправить на модерацию</button>
+      </form>
+      <div id="mySubmissions"></div>
+      <button class="text-link" id="logout">Выйти из демо-профиля</button>
+    </div>
+  </section>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
